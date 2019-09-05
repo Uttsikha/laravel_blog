@@ -27,7 +27,7 @@
             <tr>
                 <td>Photo</td>
                
-                    <td><img src= '' class='img-fluid mx-auto'/></td>
+                    <td><img src= '{{$blog->photo}}' class='img-fluid mx-auto'/></td>
             
                 <td>No picture on display</td>
             

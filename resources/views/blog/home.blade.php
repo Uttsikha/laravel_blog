@@ -17,8 +17,7 @@
       	</h3>
     	<p class='text-center text-primary '><strong>Welcome </strong></p>
 		<!-- <a href='profile.php' class="btn btn-success">My Profile </a> -->
-		<br>
-		<br>
+	
 	<a href='/blogs/create' class='btn btn-success'>
               Create a blog
      </a>
@@ -44,7 +43,9 @@
 				<td> {{$blog->id}}</td>
 				<td><a href="/blogs/{{$blog->id}}"> {{$blog->name}} </a></td>
 				<td>{{$blog->description}}</td>
-				<td>{{$blog->photo}}</td>
+				<td><img src= "	url('storage/app/'.{{$blog->photo}}" class='img-fluid mx-auto'></td>
+				<!-- <td><img src= "	{{ URL::asset('storage/app/photos/0VuvDf2hIwlyNacAqpGv1zGwuyYR1Rp9zn1rxqRX.jpeg') }}" ></td> -->
+				
 				<td>{{$blog->posted_date}}</td>
 				<td> {{$blog->user_id}}</td>
 				

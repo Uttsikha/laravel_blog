@@ -21,8 +21,8 @@ class BlogsController extends Controller
 
 
     }
-    public function read(Blog $blog){
-        return view('blog.read',compact('blog'));
+    public function show(Blog $blog){
+        return view('blog.show',compact('blog'));
     }
     public function update(Blog $blog, Request $request){
 
@@ -33,10 +33,9 @@ class BlogsController extends Controller
         $blog->name=request('name');
         $blog->description=request('description');
         $blog->user_id=request('user_id');
-        $blog->photo='Hi';
+        $id=$blog->id;
         $blog->save();
-        return redirect('/blogs');
-
+        return view('blog.show',compact('blog'));
     }
     public function edit(Blog $blog){
         return view('blog.edit',compact('blog'));
@@ -49,13 +48,18 @@ class BlogsController extends Controller
             'description' => 'required|min:25',
             'user_id' => 'required|integer|min:1'
         ]);
-
         $blog->name=request('name');
         $blog->description=request('description');
         $blog->user_id=request('user_id');
-        $blog->photo='Hi';
+        $imagePath=$request->file('photo')->store('photos');
+        $blog->photo = $imagePath;
+
+       
+       // $blog->photo='Hi';
         $blog->save();
+         //dd ($blog->photo);
         return redirect('/blogs');
+
 
     }
    
